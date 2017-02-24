@@ -5,7 +5,7 @@ const awsIot = require('aws-iot-device-sdk');
 // NOTE: other connection examples: https://github.com/aws/aws-iot-device-sdk-js/blob/master/examples/browser/mqtt-explorer/index.js
 const IoT = () => {
   let _client;
-  let _log = message => { console.log(message); };
+  const _log = message => { console.log(message); };
   function _onConnect() {
     _log('Connected');
     this.onConnect();
@@ -23,7 +23,7 @@ const IoT = () => {
           host: iotEndpoint
       });
 
-      let that = this;
+      const that = this;
       console.log('connecting client');
       _client.on('connect', _onConnect.bind(this));
       _client.on('message', that.onMessage);
